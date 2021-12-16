@@ -10,29 +10,26 @@
 </template>
 
 <script>
-// Dynamic routing for shopping list details. Should probably use store!
-import ListService from '@/services/ListService.js'
 export default {
   props: ['id'],
-  data() {
-    return {
-      list: null,
-    }
-  },
   created() {
-    ListService.getList(this.id)
-      .then((response) => {
-        this.list = response.data
+    this.$store.dispatch('fetchList', this.id).catch((error) => {
+      this.$router.push({
+        name: 'ErrorDisplay',
+        params: { error: error },
       })
-      .catch((error) => {
-        console.log(error)
-      })
+    })
+  },
+  computed: {
+    list() {
+      return this.$store.state.list
+    },
   },
 }
 </script>
 
 <style scoped>
- li {
-   list-style: none;
- }
+li {
+  list-style: none;
+}
 </style>

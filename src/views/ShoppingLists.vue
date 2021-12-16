@@ -7,26 +7,24 @@
 
 <script>
 import ListCard from '@/components/ListCard.vue'
-import ListService from '@/services/ListService.js'
 
 export default {
   name: 'ShoppingLists',
   components: {
     ListCard,
   },
-  data() {
-    return {
-      lists: null,
-    }
-  },
   created() {
-    ListService.getLists()
-      .then((response) => {
-        this.lists = response.data
+    this.$store.dispatch('fetchLists').catch((error) => {
+      this.$router.push({
+        name: 'ErrorDisplay',
+        params: { error: error },
       })
-      .catch((error) => {
-        console.log(error)
-      })
+    })
+  },
+  computed: {
+    lists() {
+      return this.$store.state.lists
+    },
   },
 }
 </script>
