@@ -1,6 +1,6 @@
 <template>
   <div class="list-card">
-    <!-- <span></span> -->
+    <span>{{ list.date }} {{ list.time }}</span>
     <h4>{{ list.title }}</h4>
   </div>
 </template>
