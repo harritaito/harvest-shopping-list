@@ -1,8 +1,13 @@
 <template>
-  <div class="list-card">
-    <span>{{ list.date }} {{ list.time }}</span>
-    <h4>{{ list.title }}</h4>
-  </div>
+  <router-link
+    class="list-link"
+    :to="{ name: 'ListDetails', params: { id: list.id } }"
+  >
+    <div class="list-card">
+      <span>{{ list.date }} {{ list.time }}</span>
+      <h4>{{ list.title }}</h4>
+    </div>
+  </router-link>
 </template>
 
 <script>
@@ -28,5 +33,9 @@ export default {
 .list-card:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+}
+.list-link {
+  color: #2c3e50;
+  text-decoration: none;
 }
 </style>

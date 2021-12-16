@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ShoppingLists from '@/views/ShoppingLists.vue'
+import ListDetails from '@/views/ListDetails.vue'
 import About from '@/views/About.vue'
 
 const routes = [
@@ -7,6 +8,12 @@ const routes = [
     path: '/',
     name: 'ShoppingLists',
     component: ShoppingLists,
+  },
+  {
+    path: '/lists/:id',
+    name: 'ListDetails',
+    props: true,
+    component: ListDetails,
   },
   {
     path: '/about',

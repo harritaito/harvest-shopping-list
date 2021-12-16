@@ -13,4 +13,7 @@ export default {
   getLists() {
     return apiClient.get('/lists')
   },
+  getList(id) {
+    return apiClient.get('/lists/' + id)
+  },
 }
