@@ -7,7 +7,10 @@
       "maker": "Harri",
       "title": "This days shopping list",
       "description": "This is for healthly living",
-      "items": ["blueberries", "cherries"]
+      "items": [
+        "blueberries",
+        "cherries"
+      ]
     },
     {
       "id": 456,
@@ -16,7 +19,10 @@
       "maker": "Miia",
       "title": "Friday's shopping list",
       "description": "This is for healthly living",
-      "items": ["apples", "mangos"]
+      "items": [
+        "apples",
+        "mangos"
+      ]
     },
     {
       "id": 789,
@@ -25,7 +31,10 @@
       "maker": "Harri",
       "title": "Holiday shopping list",
       "description": "This is for decadent living",
-      "items": ["chocolate", "cake"]
+      "items": [
+        "chocolate",
+        "cake"
+      ]
     }
   ]
 }

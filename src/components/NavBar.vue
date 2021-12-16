@@ -2,7 +2,8 @@
   <div id="nav" class="nav">
     <nav>
       <router-link :to="{ name: 'ShoppingLists' }">Lists</router-link> |
-      <router-link :to="{ name: 'About' }">About</router-link>
+      <router-link :to="{ name: 'About' }">About</router-link> |
+      <router-link :to="{ name: 'ListCreate' }">Create a list</router-link>
     </nav>
   </div>
 </template>

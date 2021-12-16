@@ -8,6 +8,15 @@ export default createStore({
     list: {},
   },
   mutations: {
+    ADD_LIST(state, list) {
+      state.lists.push(list)
+    },
+    REMOVE_LIST(state, id) {
+      const index = state.lists.findIndex((list) => list.id == id)
+      console.log(index)
+      state.lists.splice(index, 1)
+      console.log('success')
+    },
     SET_LIST(state, list) {
       state.list = list
     },
@@ -16,6 +25,25 @@ export default createStore({
     },
   },
   actions: {
+    createList({ commit }, list) {
+      return ListService.postList(list)
+        .then(() => {
+          commit('ADD_LIST', list)
+        })
+        .catch((error) => {
+          throw error
+        })
+    },
+    deleteList({ commit }, id) {
+      return ListService.deleteList(id)
+        .then((response) => {
+          commit('REMOVE_LIST', response.data)
+          console.log('yippee')
+        })
+        .catch((error) => {
+          throw error
+        })
+    },
     fetchLists({ commit }) {
       return ListService.getLists()
         .then((response) => {

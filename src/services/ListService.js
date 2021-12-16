@@ -16,4 +16,10 @@ export default {
   getList(id) {
     return apiClient.get('/lists/' + id)
   },
+  postList(list) { 
+    return apiClient.post('/lists', list)
+  },
+  deleteList(id) { 
+    return apiClient.delete('/lists/' + id)
+  },
 }
